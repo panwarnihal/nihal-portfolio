@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihal Panwar — Full-Stack Developer & MCA Student</title>
+  <meta name="description" content="Portfolio of Nihal Panwar — Full-Stack Developer & MCA Student specializing in scalable web applications, NLP, and cloud technologies." />
+  <meta name="keywords" content="Nihal Panwar, Full-Stack Developer, MCA, NLP, Cloud Computing, Portfolio" />
+  <meta name="author" content="Nihal Panwar" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nihal Panwar — Full-Stack Developer & MCA Student" />
+  <meta property="og:description" content="Portfolio of Nihal Panwar — Full-Stack Developer & MCA Student specializing in scalable web applications, NLP, and cloud technologies." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Cursor Glow ===== -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="nav-logo">NP<span class="logo-dot">.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+      <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+      <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+      <li><a href="#research" class="nav-link" data-section="research">Research</a></li>
+      <li><a href="mailto:panwar.nihal2004@gmail.com" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge animate-in">
+        <span class="status-dot"></span>
+        Available for opportunities
+      </div>
+      <h1 class="hero-name animate-in" style="--delay: 0.1s">
+        Nihal<br />Panwar<span class="accent-dot">.</span>
+      </h1>
+      <p class="hero-headline animate-in" style="--delay: 0.2s">
+        Full-Stack Developer &amp; MCA Student specializing in
+        <span class="text-gradient">scalable web applications</span> and
+        <span class="text-gradient">NLP</span>.
+      </p>
+      <div class="hero-actions animate-in" style="--delay: 0.3s">
+        <a href="https://github.com/CodeShark-pro" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="github-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="mailto:panwar.nihal2004@gmail.com" class="btn btn-outline" id="email-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email Me
+        </a>
+      </div>
+      <div class="hero-scroll-hint animate-in" style="--delay: 0.5s">
+        <span>Scroll to explore</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About Section ===== -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-number">01</span>
+        <span class="label-text">About Me</span>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-heading">
+            Building the bridge between
+            <span class="text-gradient">ideas</span> and
+            <span class="text-gradient">execution</span>.
+          </h2>
+          <p class="about-description">
+            I am currently pursuing my Master of Computer Applications at
+            <strong>Christ University, Delhi NCR</strong>, with a strong foundation in
+            <strong>Python</strong>, <strong>JavaScript</strong>, and
+            <strong>cloud technologies</strong>. I enjoy tackling complex backend
+            challenges and integrating machine learning models into practical web tools.
+          </p>
+        </div>
+        <div class="about-skills">
+          <h3 class="skills-title">Core Technologies</h3>
+          <div class="skills-grid">
+            <div class="skill-tag" data-skill="python">
+              <span class="skill-icon">🐍</span> Python
+            </div>
+            <div class="skill-tag" data-skill="javascript">
+              <span class="skill-icon">⚡</span> JavaScript
+            </div>
+            <div class="skill-tag" data-skill="react">
+              <span class="skill-icon">⚛️</span> React
+            </div>
+            <div class="skill-tag" data-skill="cloud">
+              <span class="skill-icon">☁️</span> Cloud
+            </div>
+            <div class="skill-tag" data-skill="nlp">
+              <span class="skill-icon">🧠</span> NLP
+            </div>
+            <div class="skill-tag" data-skill="fastapi">
+              <span class="skill-icon">🚀</span> FastAPI
+            </div>
+            <div class="skill-tag" data-skill="node">
+              <span class="skill-icon">🟢</span> Node.js
+            </div>
+            <div class="skill-tag" data-skill="sql">
+              <span class="skill-icon">🗄️</span> SQL
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Experience Section ===== -->
+  <section class="section experience" id="experience">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-number">02</span>
+        <span class="label-text">Experience</span>
+      </div>
+      <h2 class="section-heading">
+        Where I've <span class="text-gradient">contributed</span>.
+      </h2>
+      <div class="timeline">
+        <div class="timeline-item" id="exp-adrelia">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-company">Adrelia</h3>
+                <p class="exp-role">Full-Stack Engineering Intern</p>
+              </div>
+              <span class="exp-date">May — July 2026</span>
+            </div>
+            <p class="exp-description">
+              Focused on <strong>multi-tenant architecture</strong> and
+              <strong>inventory module integration</strong>, building scalable
+              solutions to support complex business logic across multiple client
+              environments.
+            </p>
+            <div class="exp-tags">
+              <span class="exp-tag">Multi-Tenant</span>
+              <span class="exp-tag">Full-Stack</span>
+              <span class="exp-tag">Inventory Systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projects Section ===== -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-number">03</span>
+        <span class="label-text">Projects</span>
+      </div>
+      <h2 class="section-heading">
+        Things I've <span class="text-gradient">built</span>.
+      </h2>
+      <div class="projects-grid">
+
+        <!-- GenMed -->
+        <article class="project-card featured" id="project-genmed">
+          <div class="project-card-inner">
+            <div class="project-number">01</div>
+            <div class="project-icon">💊</div>
+            <h3 class="project-title">GenMed</h3>
+            <p class="project-desc">
+              An NLP-based web application designed to map branded Indian
+              pharmaceuticals to affordable generic alternatives — making healthcare
+              more accessible.
+            </p>
+            <div class="project-tags">
+              <span>NLP</span><span>Python</span><span>Web App</span>
+            </div>
+            <div class="project-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- VeriGuard -->
+        <article class="project-card" id="project-veriguard">
+          <div class="project-card-inner">
+            <div class="project-number">02</div>
+            <div class="project-icon">🛡️</div>
+            <h3 class="project-title">VeriGuard</h3>
+            <p class="project-desc">
+              An autonomous fact-checking Chrome extension built with FastAPI, Python,
+              and a local DeBERTa-v3 Cross-Encoder to mathematically verify zero-day
+              disinformation against trusted sources.
+            </p>
+            <div class="project-tags">
+              <span>FastAPI</span><span>DeBERTa</span><span>Chrome Ext</span>
+            </div>
+            <div class="project-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Hospital Reservation System -->
+        <article class="project-card" id="project-hospital">
+          <div class="project-card-inner">
+            <div class="project-number">03</div>
+            <div class="project-icon">🏥</div>
+            <h3 class="project-title">Hospital Reservation System</h3>
+            <p class="project-desc">
+              A multi-user healthcare platform featuring real-time tracking, staff
+              availability management, and automated invoice generation using
+              xhtml2pdf.
+            </p>
+            <div class="project-tags">
+              <span>Healthcare</span><span>Real-time</span><span>xhtml2pdf</span>
+            </div>
+            <div class="project-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- PetConnect -->
+        <article class="project-card" id="project-petconnect">
+          <div class="project-card-inner">
+            <div class="project-number">04</div>
+            <div class="project-icon">🐾</div>
+            <h3 class="project-title">PetConnect</h3>
+            <p class="project-desc">
+              A React-based social networking app for pet parents, featuring an
+              optimized onboarding flow and lazy-loaded high-resolution galleries.
+            </p>
+            <div class="project-tags">
+              <span>React</span><span>Social</span><span>Performance</span>
+            </div>
+            <div class="project-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Research Section ===== -->
+  <section class="section research" id="research">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-number">04</span>
+        <span class="label-text">Research &amp; Publications</span>
+      </div>
+      <h2 class="section-heading">
+        Academic <span class="text-gradient">contributions</span>.
+      </h2>
+      <div class="research-card" id="research-carbon-aware">
+        <div class="research-card-glow"></div>
+        <div class="research-card-content">
+          <div class="research-type">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Conference Paper
+          </div>
+          <h3 class="research-title">
+            Design and Simulation of a Carbon-Aware Workload Scheduler for
+            Delay-Tolerant Cloud Tasks
+          </h3>
+          <p class="research-venue">
+            Presented at the <strong>ETNCC Conference</strong>
+          </p>
+          <p class="research-abstract">
+            This research explores scheduling strategies for cloud workloads that
+            optimize for carbon intensity signals, deferring delay-tolerant tasks to
+            low-emission time windows — contributing to greener, more sustainable
+            cloud computing.
+          </p>
+          <div class="research-tags">
+            <span>Cloud Computing</span>
+            <span>Sustainability</span>
+            <span>Scheduling</span>
+            <span>Simulation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="footer-logo">NP<span class="logo-dot">.</span></span>
+          <p class="footer-tagline">Crafting digital experiences with purpose.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/CodeShark-pro" target="_blank" rel="noopener noreferrer" id="footer-github">GitHub</a>
+          <a href="mailto:panwar.nihal2004@gmail.com" id="footer-email">Email</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nihal Panwar. Built with care.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
