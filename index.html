@@ -25,19 +25,21 @@
   <!-- ===== Cursor Glow ===== -->
   <div class="cursor-glow" id="cursorGlow"></div>
 
-  <!-- ===== Navigation ===== -->
-  <nav class="navbar" id="navbar">
-    <a href="#hero" class="nav-logo">NP<span class="logo-dot">.</span></a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about" class="nav-link" data-section="about">About</a></li>
-      <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
-      <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
-      <li><a href="#research" class="nav-link" data-section="research">Research</a></li>
-      <li><a href="mailto:panwar.nihal2004@gmail.com" class="nav-cta">Get in Touch</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
+  <!-- ===== Floating Logo ===== -->
+  <a href="#hero" class="floating-logo" id="floatingLogo">NP<span class="logo-dot">.</span></a>
+
+  <!-- ===== Mobile Nav Toggle ===== -->
+  <button class="wheel-toggle" id="wheelToggle" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- ===== Option Wheel Navigation ===== -->
+  <nav class="option-wheel" id="optionWheel" role="listbox" tabindex="0" aria-label="Navigation wheel">
+    <div class="option-wheel__item" data-section="hero" role="option">Home</div>
+    <div class="option-wheel__item" data-section="about" role="option">About</div>
+    <div class="option-wheel__item" data-section="experience" role="option">Experience</div>
+    <div class="option-wheel__item" data-section="projects" role="option">Projects</div>
+    <div class="option-wheel__item" data-section="research" role="option">Research</div>
   </nav>
 
   <!-- ===== Hero Section ===== -->
