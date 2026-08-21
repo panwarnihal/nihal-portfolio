@@ -165,6 +165,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---- Scroll to Top button ----
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+  function handleScrollTopVisibility() {
+    if (window.scrollY > 500) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', handleScrollTopVisibility, { passive: true });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
   // ---- Page loaded state ----
   document.body.classList.add('loaded');
 });
