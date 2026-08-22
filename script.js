@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Scroll Reveal (Intersection Observer) ----
   const revealElements = document.querySelectorAll(
     '.section-label, .section-heading, .about-text, .about-skills, ' +
-    '.timeline-item, .project-card, .research-card, .footer-content'
+    '.timeline-item, .project-card, .research-card, .footer-cta, .footer-grid'
   );
 
   revealElements.forEach((el) => el.classList.add('reveal'));
