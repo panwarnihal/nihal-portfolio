@@ -8,6 +8,108 @@ document.addEventListener('DOMContentLoaded', () => {
   const wheelToggle = document.getElementById('wheelToggle');
   const optionWheel = document.getElementById('optionWheel');
 
+  // ---- Particle Canvas Background ----
+  const canvas = document.getElementById('particleCanvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let mouseX = -1000, mouseY = -1000;
+    let animFrameId;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.speedY = (Math.random() - 0.5) * 0.3;
+        this.opacity = Math.random() * 0.4 + 0.1;
+        this.pulseSpeed = Math.random() * 0.01 + 0.005;
+        this.pulsePhase = Math.random() * Math.PI * 2;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.pulsePhase += this.pulseSpeed;
+
+        // Mouse repulsion
+        const dx = this.x - mouseX;
+        const dy = this.y - mouseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          const force = (120 - dist) / 120 * 0.5;
+          this.x += (dx / dist) * force;
+          this.y += (dy / dist) * force;
+        }
+
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        this.x = Math.max(0, Math.min(canvas.width, this.x));
+        this.y = Math.max(0, Math.min(canvas.height, this.y));
+      }
+      draw() {
+        const pulse = Math.sin(this.pulsePhase) * 0.15 + 0.85;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size * pulse, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(108, 99, 255, ${this.opacity * pulse})`;
+        ctx.fill();
+      }
+    }
+
+    // Create particles (fewer on mobile)
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 30 : 60;
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    function drawConnections() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            const opacity = (1 - dist / 120) * 0.08;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(108, 99, 255, ${opacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      drawConnections();
+      animFrameId = requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+  }
+
   // ---- Cursor Glow (desktop only) ----
   if (window.matchMedia('(pointer: fine)').matches) {
     let glowX = 0, glowY = 0;
@@ -244,7 +346,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Scroll Reveal (Intersection Observer) ----
   const revealElements = document.querySelectorAll(
     '.section-label, .section-heading, .about-text, .about-skills, ' +
-    '.timeline-item, .project-card, .research-card, .footer-cta, .footer-grid'
+    '.timeline-item, .project-card, .research-card, ' +
+    '.achievement-card, .stats-bar, ' +
+    '.footer-cta, .footer-grid'
   );
 
   revealElements.forEach((el) => el.classList.add('reveal'));
@@ -271,6 +375,40 @@ document.addEventListener('DOMContentLoaded', () => {
   projectCards.forEach((card, index) => {
     card.style.transitionDelay = `${index * 0.1}s`;
   });
+
+  // ---- Animated Stat Counters ----
+  const statNumbers = document.querySelectorAll('.stat-number[data-count]');
+  const statsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.count, 10);
+          let current = 0;
+          const duration = 1500;
+          const startTime = performance.now();
+
+          function animateCounter(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            current = Math.round(eased * target);
+            el.textContent = current;
+            if (progress < 1) {
+              requestAnimationFrame(animateCounter);
+            }
+          }
+
+          requestAnimationFrame(animateCounter);
+          statsObserver.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  statNumbers.forEach((el) => statsObserver.observe(el));
 
   // ---- Skill tag tilt on hover (micro-interaction) ----
   const skillTags = document.querySelectorAll('.skill-tag');
@@ -301,6 +439,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     card.addEventListener('mouseleave', () => {
       card.style.transform = '';
+    });
+  });
+
+  // ---- Achievement card hover glow effect ----
+  const achievementCards = document.querySelectorAll('.achievement-card');
+  achievementCards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--glow-x', `${x}px`);
+      card.style.setProperty('--glow-y', `${y}px`);
     });
   });
 
